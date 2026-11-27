@@ -42,7 +42,7 @@ class Asset extends Model
     // FR-10.2 audit diff JSON
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logAll()->logOnlyDirty()->dontSubmitEmptyLogs();
+        return LogOptions::defaults()->logAll()->logOnlyDirty()->dontLogEmptyChanges();
     }
 
     public function tenant(): BelongsTo { return $this->belongsTo(Tenant::class); }

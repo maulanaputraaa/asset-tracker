@@ -8,6 +8,7 @@ use App\Models\Site;
 use App\Models\AssetCategory;
 use App\Models\Vendor;
 use App\Models\Department;
+use App\Models\Asset;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -62,6 +63,9 @@ class DatabaseSeeder extends Seeder
             ['code' => 'SITE-001'],
             ['name' => 'Gudang Utama', 'address' => 'Jl. Industri No. 1', 'tenant_id' => $tenant->id]
         );
+
+        // 6. Aset demo (idempoten, aman di-rerun)
+        $this->call(AssetDemoSeeder::class);
 
         AssetCategory::firstOrCreate(['name' => 'Mesin'], ['tenant_id' => $tenant->id]);
         AssetCategory::firstOrCreate(['name' => 'Kendaraan'], ['tenant_id' => $tenant->id]);

@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(Site::with(['locationParent'])->latest()->get());
+        return response()->json(Site::latest()->get());
     }
 
     public function store(Request $request): JsonResponse
